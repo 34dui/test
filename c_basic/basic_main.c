@@ -5,13 +5,6 @@
 #include <string.h>
 #include "basic1.h"
 #include "basic_main.h"
-//void print_value1(int k);  
-
-
-
-
-
-
 
 int main()
 {
