@@ -1,0 +1,17 @@
+{
+    "folders": [
+        {
+            "name": "c_basic",
+            "path": "./c_basic"
+        },
+        {
+            "name": "c_advance",
+            "path": "./c_advance"
+        },
+        {
+            "name": "c++",
+            "path": "./c++"
+        }
+    ],
+    "settings": {}
+}

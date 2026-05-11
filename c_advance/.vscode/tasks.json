@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build c_advance",
+            "type": "shell",
+            "command": "D:\\mingw\\w64devkit\\bin\\gcc.exe",
+            "args": [
+                "-g",
+                "${workspaceFolder}\\c_advance\\data_struct.c",
+                "-o",
+                "${workspaceFolder}\\c_advance\\basic_struct.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

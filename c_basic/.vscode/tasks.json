@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build basic_main",
+            "type": "shell",
+            "command": "D:\\mingw\\w64devkit\\bin\\gcc.exe",
+            "args": [
+                "-g",
+                "${workspaceFolder}\\c_basic\\basic_main.c",
+                "${workspaceFolder}\\c_basic\\basic1.c",
+                "-o",
+                "${workspaceFolder}\\c_basic\\basic_main.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

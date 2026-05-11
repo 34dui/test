@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build cpp_main",
+            "type": "shell",
+            "command": "D:\\mingw\\w64devkit\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${workspaceFolder}\\main.cpp",
+                "-o",
+                "${workspaceFolder}\\main.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
