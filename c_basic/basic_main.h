@@ -27,11 +27,11 @@ struct date4 *in_today(struct date4 *today);
 //自定义数据类型
 //typedef long int64_t;
 //int64_t num;<-->long num
-typedef struct date4{
+/* typedef struct date4{
   int year;
   int month;
   int day;
-}date;
+}date; */
 /*typedef struc{
   int year;
   int month;
@@ -57,7 +57,6 @@ void f(void);
 #define prt printf(format,PI2);\
             printf(format,PI2)
 #define square(x) ((x)*(x))
-
 
 typedef struct _node{
     int id;
