@@ -6,198 +6,11 @@
 #include "basic1.h"
 #include "basic_main.h"
 //void print_value1(int k);  
-enum color{red,yellow,green};//0,1,2
-//也可以直接赋值，不赋值是连续的正整数
-//enum color{red =3,yellow,green =9};//3,4,9
-//可以在最后写上到底有多少数量
-//enum color{red =3,yellow,green =9,num=3};//3,4,9
 
 
-void get_value(int *p){
-  int k=*p;
-  printf("p的地址=%d\n",p);
-  printf("p=%d\n",*p);
-  k++;
-  printf("p的地址=%d\n",p);
-  printf("p=%d\n",*p);
-  *p=k++;
-  printf("p的地址=%d\n",p);
-  printf("p=%d\n",*p);
-}
 
 
-void print_value(int k){
-  printf("k=%d\n",k);
-}
 
-
-int mylen(char* s){
-  //法1
-  /* int idx=0;
-  int cnt=0;
-  while(s[idx]!='\0'){
-      idx++;
-      cnt++;
-  }
-  return cnt; */
-  //法2
-  /* int len=0;
-  while(s[len++]);
-  return len-1; */
-  //法3
-  char *p=s;
-  while(*p!='\0'){
-    p++;
-  }
-  return p-s;
-}
-
-
-int mycmp(char* s1,char* s2){
-  while(*s1==*s2&&*s1!='\0'){
-    s1++;
-    s2++;
-  }
-  //也可以强制转成unsigned char
-  //*(unsigned char*)s1
-  //int diff = *(unsigned char*)s1-*(unsigned char*)s2;
-  int diff = *s1-*s2;
-  if(diff<0){
-    return -1;
-  }else if(diff==0){
-    return 0;
-  }
-  else{
-    return 1;
-  }
-}
-
-
-char* mycpy(char* s1,char* s2){
-  char* ret=s1;
-  while(*s2!='\0'){
-    *s1=*s2;
-    s1++;
-    s2++;
-  }
-  *s1 = '\0';   // 手动添加结尾符
-  return ret;
-}
-
-
-struct date4{
-  int year;
-  int month;
-  int day;
-};
-
-
-bool isleap(struct date4 d){
-  //判断是否是闰年
-  bool leap=false;
-  if((d.year%4==0&&d.year%100!=0)||d.year%400==0){
-    leap=true;
-  }
-  return leap;
-}
-
-
-int getlastday(struct date4 d){
-  int days;
-  const int lastday[]={31,28,31,30,31,30,31,31,30,31,30,31};
-  //获取月最后一天是多少
-  if (isleap(d)&&d.month==2){
-    days=29;
-  }
-  else{
-    days=lastday[d.month-1];
-  }
-  return days;
-}
-
-
-void get_today(struct date4 day){
-  //直接用结构体，并不会改变main中的值
-  printf("输入年 月 日\n");
-  scanf("%d %d %d",&day.year,&day.month,&day.day);
-  printf("此时today是%d-%d-%d\n",day.year,day.month,day.day);
-}
-
-
-void get_arr(char* arr){
-  arr[0]='s';
-}
-
-
-struct date4 gettoday(void){
-  struct date4 day;
-  printf("输入年 月 日\n");
-  scanf("%d %d %d",&day.year,&day.month,&day.day);
-  return day;
-}
-
-
-struct date4 *in_today(struct date4 *today){
-  printf("输入年 月 日\n");
-  scanf("%d %d %d",&(*today).year,&today->month,&today->day);
-  return today;
-}
-
-
-//自定义数据类型
-//typedef long int64_t;
-//int64_t num;<-->long num
-typedef struct date4{
-  int year;
-  int month;
-  int day;
-}date;
-/*typedef struc{
-  int year;
-  int month;
-  int day;
-}date;*/
-// date day={1234,12,1};
-
-
-typedef union library{
-  int id;
-  char name[sizeof(int)];
-}lib;
-
-
-int global=12;
-int global_test(void){
-  printf("in %s global is:%d\n",__func__,global);
-  int global=2;
-  printf("in %s int global=2,global is:%d\n",__func__,global);
-  return global;
-}
-
-
-int static_test(void){
-  static int q=1;
-  q++;
-  printf("q is %d\n",q);
-}
-
-
-/* int* re_test(void){
-  int i=2;
-
-  return &i;
-} */
-void f(void){
-  int k=10;
-  printf("k =%d\n",k);
-}
-
-#define PI 3.14159
-#define PI2 2*PI
-#define format "%f\n"
-#define prt printf(format,PI2);\
-            printf(format,PI2)
-#define square(x) ((x)*(x))
 
 
 int main()
@@ -856,4 +669,157 @@ void add(LIST* plist, int number) {
         plist->head = t;                // 头尾都指向新节点
         plist->tail = t;
     }
+}
+
+
+void get_value(int *p){
+  int k=*p;
+  printf("p的地址=%d\n",p);
+  printf("p=%d\n",*p);
+  k++;
+  printf("p的地址=%d\n",p);
+  printf("p=%d\n",*p);
+  *p=k++;
+  printf("p的地址=%d\n",p);
+  printf("p=%d\n",*p);
+}
+
+
+void print_value(int k){
+  printf("k=%d\n",k);
+}
+
+
+int mylen(char* s){
+  //法1
+  /* int idx=0;
+  int cnt=0;
+  while(s[idx]!='\0'){
+      idx++;
+      cnt++;
+  }
+  return cnt; */
+  //法2
+  /* int len=0;
+  while(s[len++]);
+  return len-1; */
+  //法3
+  char *p=s;
+  while(*p!='\0'){
+    p++;
+  }
+  return p-s;
+}
+
+
+int mycmp(char* s1,char* s2){
+  while(*s1==*s2&&*s1!='\0'){
+    s1++;
+    s2++;
+  }
+  //也可以强制转成unsigned char
+  //*(unsigned char*)s1
+  //int diff = *(unsigned char*)s1-*(unsigned char*)s2;
+  int diff = *s1-*s2;
+  if(diff<0){
+    return -1;
+  }else if(diff==0){
+    return 0;
+  }
+  else{
+    return 1;
+  }
+}
+
+
+char* mycpy(char* s1,char* s2){
+  char* ret=s1;
+  while(*s2!='\0'){
+    *s1=*s2;
+    s1++;
+    s2++;
+  }
+  *s1 = '\0';   // 手动添加结尾符
+  return ret;
+}
+
+
+
+
+
+bool isleap(struct date4 d){
+  //判断是否是闰年
+  bool leap=false;
+  if((d.year%4==0&&d.year%100!=0)||d.year%400==0){
+    leap=true;
+  }
+  return leap;
+}
+
+
+int getlastday(struct date4 d){
+  int days;
+  const int lastday[]={31,28,31,30,31,30,31,31,30,31,30,31};
+  //获取月最后一天是多少
+  if (isleap(d)&&d.month==2){
+    days=29;
+  }
+  else{
+    days=lastday[d.month-1];
+  }
+  return days;
+}
+
+
+void get_today(struct date4 day){
+  //直接用结构体，并不会改变main中的值
+  printf("输入年 月 日\n");
+  scanf("%d %d %d",&day.year,&day.month,&day.day);
+  printf("此时today是%d-%d-%d\n",day.year,day.month,day.day);
+}
+
+
+void get_arr(char* arr){
+  arr[0]='s';
+}
+
+
+struct date4 gettoday(void){
+  struct date4 day;
+  printf("输入年 月 日\n");
+  scanf("%d %d %d",&day.year,&day.month,&day.day);
+  return day;
+}
+
+
+struct date4 *in_today(struct date4 *today){
+  printf("输入年 月 日\n");
+  scanf("%d %d %d",&(*today).year,&today->month,&today->day);
+  return today;
+}
+
+
+int global_test(void){
+  printf("in %s global is:%d\n",__func__,global);
+  int global=2;
+  printf("in %s int global=2,global is:%d\n",__func__,global);
+  return global;
+}
+
+
+int static_test(void){
+  static int q=1;
+  q++;
+  printf("q is %d\n",q);
+}
+
+
+/* int* re_test(void){
+  int i=2;
+
+  return &i;
+} */
+void f(void){
+  int k=10;
+  printf("k =%d\n",k);
 }
